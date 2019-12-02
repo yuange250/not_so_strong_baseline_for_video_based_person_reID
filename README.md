@@ -14,7 +14,7 @@ tqdm
 
 
 ### Dataset
-####MARS
+#### MARS
 Experiments on MARS, as it is the largest dataset available to date for video-based person reID. Please follow [deep-person-reid](https://github.com/KaiyangZhou/deep-person-reid) to prepare the data. The instructions are copied here: 
 
 1. Create a directory named `mars/`.
@@ -29,7 +29,7 @@ Experiments on MARS, as it is the largest dataset available to date for video-ba
     ```
 5. Change the global variable `_C.DATASETS.ROOT_DIR` to `/path2mars/mars` and `_C.DATASETS.NAME` to `mars` in config or configs.
 
-####Duke-VID
+#### Duke-VID
 1. Create a directory named `duke/` under `data/`.
 2. Download dataset to `data/duke/` from http://vision.cs.duke.edu/DukeMTMC/data/misc/DukeMTMC-VideoReID.zip.
 3. Extract `DukeMTMC-VideoReID.zip`.
@@ -50,4 +50,9 @@ Please modifies the settings directly on the config files.
 (to be complete)
 
 ### Performance
-To be retest, normally it could be mAP 80% and Rank-1 87%
+Best performance on MARS:
+mAP : 81.2%
+Rank-1 : 86.6%
+Rank-5 : 96.0%
+
+Ablation study and experiments on Duke-VID is undergoing,

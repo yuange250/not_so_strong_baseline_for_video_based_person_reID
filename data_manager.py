@@ -45,7 +45,6 @@ class Mars(object):
         self.track_train_info_path = osp.join(root, 'info/tracks_train_info.mat')
         self.track_test_info_path = osp.join(root, 'info/tracks_test_info.mat')
         self.query_IDX_path = osp.join(root, 'info/query_IDX.mat')
-        self.attributes_path = osp.join(root, "mars_attributes.csv")
         self._check_before_run()
         # prepare meta data
         train_names = self._get_names(self.train_name_path)
@@ -109,9 +108,6 @@ class Mars(object):
             raise RuntimeError("'{}' is not available".format(self.track_test_info_path))
         if not osp.exists(self.query_IDX_path):
             raise RuntimeError("'{}' is not available".format(self.query_IDX_path))
-        if not osp.exists(self.attributes_path):
-            raise RuntimeError("'{}' is not available".format(self.attributes_path))
-
 
     def _get_names(self, fpath):
         names = []
@@ -449,14 +445,7 @@ class DukeMTMC_Video(object):
         self.train_name_path = os.path.join(root, "train")
         self.gallery_name_path = os.path.join(root, "gallery")
         self.query_name_path = os.path.join(root, "query")
-        self.attributes_path = osp.join(root, "duke_attributes.csv")
         self._check_before_run()
-        self.attributes = pd.read_csv(self.attributes_path)
-        train, num_train_tracklets, num_train_pids, num_train_imgs, train_t_list = \
-            self._process_data(self.train_name_path, relabel=True, min_seq_len=min_seq_len)
-        query, num_query_tracklets, num_query_pids, num_query_imgs, query_t_list = \
-            self._process_data(self.query_name_path, relabel=False, min_seq_len=min_seq_len)
-
 
         gallery, num_gallery_tracklets, num_gallery_pids, num_gallery_imgs, gallery_t_list = \
             self._process_data(self.gallery_name_path, relabel=False, min_seq_len=min_seq_len, exclude_tracklets=query_t_list)
@@ -516,9 +505,7 @@ class DukeMTMC_Video(object):
             raise RuntimeError("'{}' is not available".format(self.gallery_name_path))
         if not osp.exists(self.query_name_path):
             raise RuntimeError("'{}' is not available".format(self.query_name_path))
-        if not osp.exists(self.attributes_path):
-            raise RuntimeError("'{}' is not available".format(self.attributes_path))
-
+        
     def _get_names(self, fpath):
         names = []
         with open(fpath, 'r') as f:

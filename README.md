@@ -55,4 +55,6 @@ mAP : 81.2%
 Rank-1 : 86.6%
 Rank-5 : 96.0%
 
-Ablation study and experiments on Duke-VID is undergoing,
+Ablation study and experiments on Duke-VID is undergoing, 
+
+Since I'm graduated, I have no graphic cards to conduct the expriments, my sincere aplogies....Hoping the merge request from U, my rich friends~ 
